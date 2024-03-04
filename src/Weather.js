@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import ForecastDate from "ForecastDate";
 
 export default function Weather(props) {
   const [forecast, setForecast] = useState({ ready: false });
@@ -7,6 +8,7 @@ export default function Weather(props) {
   function newWeather(response) {
     setForecast({
       ready: true,
+      date: new Date{response.data.dt * 1000},
       temperature: response.data.main.temp,
       city: response.data.name,
       wind: response.data.wind.speed,
@@ -36,6 +38,12 @@ export default function Weather(props) {
             <div>
               <h1 className="city"> {forecast.city} </h1>
               <p>
+                <ul>
+                  <li>
+                    <ForecastDate date={forecast.date} />
+                  </li>
+                </ul>
+
                 <span className="current-date" id="current-date">
                   Tuesday 11:55am{" "}
                 </span>
@@ -63,6 +71,20 @@ export default function Weather(props) {
         </main>
 
         <div className="weather-forecast"></div>
+        <footer>
+        <p>
+          This project was designed & coded by
+          <a href="https://www.linkedin.com/in/miriam-mumo-6a0950b3/">
+            Mumo Mailu
+          </a>
+          and is
+          <a href="https://github.com/Mumo23/mumo-weatherapp-project">
+            on GitHub
+          </a>
+          and hosted on
+          <a href="https://app.netlify.com/user/settings#profile">Netlify</a>
+        </p>
+      </footer>
       </div>
     );
   } else {
