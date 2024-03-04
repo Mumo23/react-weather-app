@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Forecast from "./Forecast";
+import Icon from "./Icon";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -75,6 +76,7 @@ export default function Weather(props) {
                   <li>Humidity: {forecast.humidity}%</li>
                   <li>Wind: {forecast.wind}Km/H</li>
                   <li>
+                    <Icon code={props.data.icon} />
                     <img src={forecast.icon} alt={forecast.description} />
                   </li>
                 </ul>
