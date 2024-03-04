@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
-import ForecastDate from "ForecastDate";
+import Forecast from "./Forecast";
 
 export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultcity);
   const [forecast, setForecast] = useState({ ready: false });
 
   function newWeather(response) {
     setForecast({
       ready: true,
-      date: new Date{response.data.dt * 1000},
+
       temperature: response.data.main.temp,
       city: response.data.name,
       wind: response.data.wind.speed,
@@ -18,18 +19,38 @@ export default function Weather(props) {
     });
   }
 
+  function search() {
+    const apiKey = "49eb13bf4a9b386162a0657c95c63c29";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(newWeather);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
+  function updateCity(event) {
+    setCity(event.target.value);
+    search();
+  }
+
   if (forecast.ready) {
     return (
       <div className="waether-app">
         <div className="form">
-          <form id="search-form">
+          <form onSubmit={handleSubmit} id="search-form">
             <input
               type="search"
               placeholder="Enter a City ..."
               className="search-input"
               id="search-input"
             ></input>
-            <input type="submit" value="Search" className="search-form"></input>
+            <input
+              type="text"
+              value="Search"
+              className="search-form"
+              onChange={updateCity}
+            ></input>
           </form>
         </div>
 
@@ -40,7 +61,7 @@ export default function Weather(props) {
               <p>
                 <ul>
                   <li>
-                    <ForecastDate date={forecast.date} />
+                    <Forecast date={forecast.date} />
                   </li>
                 </ul>
 
@@ -72,26 +93,23 @@ export default function Weather(props) {
 
         <div className="weather-forecast"></div>
         <footer>
-        <p>
-          This project was designed & coded by
-          <a href="https://www.linkedin.com/in/miriam-mumo-6a0950b3/">
-            Mumo Mailu
-          </a>
-          and is
-          <a href="https://github.com/Mumo23/mumo-weatherapp-project">
-            on GitHub
-          </a>
-          and hosted on
-          <a href="https://app.netlify.com/user/settings#profile">Netlify</a>
-        </p>
-      </footer>
+          <p>
+            This project was designed & coded by
+            <a href="https://www.linkedin.com/in/miriam-mumo-6a0950b3/">
+              Mumo Mailu
+            </a>
+            and is
+            <a href="https://github.com/Mumo23/mumo-weatherapp-project">
+              on GitHub
+            </a>
+            and hosted on
+            <a href="https://app.netlify.com/user/settings#profile">Netlify</a>
+          </p>
+        </footer>
       </div>
     );
   } else {
-    const apiKey = "49eb13bf4a9b386162a0657c95c63c29";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultcity}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(newWeather);
-
+    search();
     return "Loading..";
   }
 }
