@@ -3,7 +3,7 @@ import axios from "axios";
 import Forecast from "./Forecast";
 
 export default function Weather(props) {
-  const [city, setCity] = useState(props.defaultcity);
+  const [city, setCity] = useState(props.defaultCity);
   const [forecast, setForecast] = useState({ ready: false });
 
   function newWeather(response) {
@@ -15,7 +15,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       humdity: response.data.main.humidity,
       description: response.data.weather[0].description,
-      iconUrl: response.data.weather[0].icon,
+      iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"`,
     });
   }
 
