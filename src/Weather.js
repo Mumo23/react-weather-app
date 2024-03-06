@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Forecast from "./Forecast";
-import Icon from "./Icon";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -10,13 +9,13 @@ export default function Weather(props) {
   function newWeather(response) {
     setForecast({
       ready: true,
-
       temperature: response.data.main.temp,
       city: response.data.name,
+      date: new Date(response.data.dt * 1000),
       wind: response.data.wind.speed,
       humdity: response.data.main.humidity,
       description: response.data.weather[0].description,
-      iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"`,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -28,11 +27,11 @@ export default function Weather(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
+    search();
   }
 
   function updateCity(event) {
     setCity(event.target.value);
-    search();
   }
 
   if (forecast.ready) {
@@ -55,43 +54,7 @@ export default function Weather(props) {
           </form>
         </div>
 
-        <main>
-          <div className="app-data">
-            <div>
-              <h1 className="city"> {forecast.city} </h1>
-              <p>
-                <ul>
-                  <li>
-                    <Forecast date={forecast.date} />
-                  </li>
-                </ul>
-
-                <span className="current-date" id="current-date">
-                  Tuesday 11:55am{" "}
-                </span>
-
-                <ul>
-                  <li>Temperature: {Math.round(forecast.temperature)}°C</li>
-                  <li>Description: {forecast.description}</li>
-                  <li>Humidity: {forecast.humidity}%</li>
-                  <li>Wind: {forecast.wind}Km/H</li>
-                  <li>
-                    <Icon code={props.data.icon} />
-                    <img src={forecast.icon} alt={forecast.description} />
-                  </li>
-                </ul>
-              </p>
-            </div>
-
-            <div className="app-temperature">
-              <div className="icon" id="icon"></div>
-              <div className="current-temperature" id="current-temperature">
-                {Math.round(forecast.temperature)}
-              </div>
-              <div className="unit">°C</div>
-            </div>
-          </div>
-        </main>
+        <Forecast info={forecast} />
 
         <div className="weather-forecast"></div>
         <footer>
