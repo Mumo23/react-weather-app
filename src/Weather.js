@@ -19,12 +19,6 @@ export default function Weather(props) {
     });
   }
 
-  function search() {
-    const apiKey = "49eb13bf4a9b386162a0657c95c63c29";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(newWeather);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -32,6 +26,12 @@ export default function Weather(props) {
 
   function updateCity(event) {
     setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "49eb13bf4a9b386162a0657c95c63c29";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(newWeather);
   }
 
   if (forecast.ready) {
@@ -55,22 +55,6 @@ export default function Weather(props) {
         </div>
 
         <Forecast info={forecast} />
-
-        <div className="weather-forecast"></div>
-        <footer>
-          <p>
-            This project was designed & coded by
-            <a href="https://www.linkedin.com/in/miriam-mumo-6a0950b3/">
-              Mumo Mailu
-            </a>
-            and is
-            <a href="https://github.com/Mumo23/mumo-weatherapp-project">
-              on GitHub
-            </a>
-            and hosted on
-            <a href="https://app.netlify.com/user/settings#profile">Netlify</a>
-          </p>
-        </footer>
       </div>
     );
   } else {
