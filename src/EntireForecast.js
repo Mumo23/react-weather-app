@@ -1,7 +1,17 @@
 import React from "react";
 import Icon from "./Icon";
+import axios from "axios";
 
-export default function EntireForecast() {
+export default function EntireForecast(props) {
+  function newWeather(response) {}
+
+  let apiKey = "49eb13bf4a9b386162a0657c95c63c29";
+  let longitude = props.coordinates.lon;
+  let latitude = props.coordinates.lat;
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&exclude={part}&appid=${apiKey}
+&units=metric`;
+  axios.get(apiUrl).then(newWeather);
+
   return (
     <div className="EntireForecast">
       <div className="row">

@@ -10,6 +10,7 @@ export default function Weather(props) {
   function newWeather(response) {
     setForecast({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
@@ -51,7 +52,7 @@ export default function Weather(props) {
         </div>
 
         <Forecast data={forecast} />
-        <EntireForecast />
+        <EntireForecast coordinates={forecast.coordinates} />
         <footer>
           <p>
             This project was designed & coded by
