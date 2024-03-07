@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Forecast from "./Forecast";
+import EntireForecaast from "./EntireForecast";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -44,12 +45,13 @@ export default function Weather(props) {
               placeholder="Enter a City ..."
               className="search-input"
               onChange={updateCity}
-            ></input>
-            <input type="text" value={"Search"} className="search-form"></input>
+            />
+            <input type="text" value={"Search"} className="search-form" />
           </form>
         </div>
 
         <Forecast data={forecast} />
+        <EntireForecaast />
       </div>
     );
   } else {

@@ -19,7 +19,7 @@ export default function forecast(props) {
                 <li>Humidity: {props.data.humidity}%</li>
                 <li>Wind: {props.data.wind}Km/H</li>
                 <li>
-                  <Icon code={props.data.icon} />
+                  <Icon code={props.data.icon} size={40} />
                 </li>
               </ul>
             </p>
