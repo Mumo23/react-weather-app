@@ -14,10 +14,10 @@ export default function forecast(props) {
                 <li>
                   <DateInfo date={props.data.date} />
                 </li>
-                <li>Temperature: {Math.round(forecast.temperature)}°C</li>
-                <li>Description: {forecast.description}</li>
-                <li>Humidity: {forecast.humidity}%</li>
-                <li>Wind: {forecast.wind}Km/H</li>
+                <li>Temperature: {Math.round(props.data.temperature)}°C</li>
+                <li>Description: {props.data.description}</li>
+                <li>Humidity: {props.data.humidity}%</li>
+                <li>Wind: {props.data.wind}Km/H</li>
                 <li>
                   <Icon code={props.data.icon} />
                 </li>
