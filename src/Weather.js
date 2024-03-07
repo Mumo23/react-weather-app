@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Forecast from "./Forecast";
-import EntireForecaast from "./EntireForecast";
+import EntireForecast from "./EntireForecast";
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -37,7 +37,7 @@ export default function Weather(props) {
 
   if (forecast.ready) {
     return (
-      <div className="waether-app">
+      <div className="weather-app">
         <div className="form">
           <form onSubmit={handleSubmit} id="search-form">
             <input
@@ -51,7 +51,21 @@ export default function Weather(props) {
         </div>
 
         <Forecast data={forecast} />
-        <EntireForecaast />
+        <EntireForecast />
+        <footer>
+          <p>
+            This project was designed & coded by
+            <a href="https://www.linkedin.com/in/miriam-mumo-6a0950b3/">
+              Mumo Mailu
+            </a>
+            and is
+            <a href="https://github.com/Mumo23/mumo-weatherapp-project">
+              on GitHub
+            </a>
+            and hosted on
+            <a href="https://app.netlify.com/user/settings#profile">Netlify</a>
+          </p>
+        </footer>
       </div>
     );
   } else {

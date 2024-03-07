@@ -9,8 +9,8 @@ export default function EntireForecast() {
           <div className="EntireForecast-day">Thur</div>
           <Icon code="01d" size={24} />
           <div className="EntireForecast-temperature">
-            <span className="EntireForrcast-max">19°C</span>
-            <span className="EntireForrcast-min">17°C</span>
+            <span className="EntireForecast-max">19°</span>
+            <span className="EntireForecast-min">17°</span>
           </div>
         </div>
       </div>
