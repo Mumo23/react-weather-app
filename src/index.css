@@ -1,6 +1,8 @@
 body {
-  margin: 0 auto;
+  margin-top: 50px;
+  margin-left: 350px;
   max-width: 600px;
+  background-image: url(https://media.istockphoto.com/id/825721370/photo/flying-balloon-in-clouds-paper-cutting-style.jpg?s=1024x1024&w=is&k=20&c=6i1LYuaPbqF3Y8viGdF4eUE_hIeci2yLq3uIUmNrbEw=);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -14,7 +16,7 @@ code {
 }
 
 .weather-app {
-  background-color: rgb(191, 191, 235);
+  background-color: #f4f4f7;
   border-radius: 20px;
   padding: 20px;
   margin: 20px;
