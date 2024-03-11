@@ -22,10 +22,10 @@ export default function EntireForecast(props) {
       </div>
     );
   } else {
-    let apiKey = "49eb13bf4a9b386162a0657c95c63c29";
+    let apiKey = "f3009e4852fa0a079dab291dabf020c4";
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
-    let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(newForecast);
 
     return null;
