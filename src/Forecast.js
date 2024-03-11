@@ -20,7 +20,7 @@ export default function forecast(props) {
             </ul>
           </div>
           <div className="icon col-md-6">
-            <Icon code={props.data.icon} size={40} />
+            <Icon code={props.data.icon} size={50} />
           </div>
         </div>
       </div>

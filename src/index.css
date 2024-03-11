@@ -1,5 +1,5 @@
 body {
-  margin-top: 50px;
+  margin-top: 80px;
   margin-left: 350px;
   max-width: 600px;
   background-image: url(https://media.istockphoto.com/id/825721370/photo/flying-balloon-in-clouds-paper-cutting-style.jpg?s=1024x1024&w=is&k=20&c=6i1LYuaPbqF3Y8viGdF4eUE_hIeci2yLq3uIUmNrbEw=);
@@ -8,11 +8,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 .weather-app {
@@ -42,67 +37,41 @@ code {
   border-radius: 10px;
   border: none;
   text-align: center;
-  padding: 15px;
-
-  width: 15%;
+  padding: 13px;
+  margin-left: 18px;
 }
 
 h1 {
   color: black;
   font-size: 30px;
   font-weight: bolder;
-  line-height: 28px;
-  margin: 12px auto;
+  margin-top: 20px;
 }
 
 h2 {
-  font-size: 20px;
-}
-
-.city {
-  margin-top: 10px;
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 17px;
 }
 
 .icon {
-  margin-top: 70px;
+  margin-top: 90px;
   margin-left: 50px;
   width: 88px;
 }
 
-.unit {
-  margin-top: 40px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.weather-forecast {
-  margin: 15px;
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-}
-
-.forecast-day {
+.EntireForecast-day {
   font-size: 16px;
   margin-bottom: 10px;
   text-align: center;
 }
 
-.forecast-temperature {
+.EntireForecast-icon {
+  margin-left: 25px;
+}
+
+.EntireForecast-temperature {
   font-size: 13px;
   margin-top: 10px;
   text-align: center;
-}
-
-.forecast-temperature-max {
-  color: black;
-  font-weight: bold;
-}
-
-.EntireForecast {
-  color: #0c0c0c;
 }
 
 .EntireForecast-min {

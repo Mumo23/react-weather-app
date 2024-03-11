@@ -55,15 +55,15 @@ export default function Weather(props) {
         <EntireForecast coordinates={forecast.coordinates} />
         <footer>
           <p>
-            This project was designed & coded by
+            This project was designed & coded by {""}
             <a href="https://www.linkedin.com/in/miriam-mumo-6a0950b3/">
               Mumo Mailu
             </a>
-            and is
+            {""} and is {""}
             <a href="https://github.com/Mumo23/mumo-weatherapp-project">
-              on GitHub
+              open-sourced
             </a>
-            and hosted on
+            {""} and hosted on {""}
             <a href="https://app.netlify.com/user/settings#profile">Netlify</a>
           </p>
         </footer>

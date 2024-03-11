@@ -26,6 +26,8 @@ export default function EntireForecast(props) {
                   <EntireForecastDay data={dailyforecast} />
                 </div>
               );
+            } else {
+              return null;
             }
           })}
         </div>
