@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import EntireForecastDay from "./EntireForecastDay.js";
 
 export default function EntireForecast(props) {
   let [ready, setReady] = useState(false);
   let [forecast, setForecast] = useState(null);
+
+  useEffect(() => {
+    setReady(false);
+  }, [props.coordinates]);
 
   function newForecast(response) {
     setForecast(response.data.daily);
@@ -15,9 +19,15 @@ export default function EntireForecast(props) {
     return (
       <div className="EntireForecast">
         <div className="row">
-          <div className="col">
-            <EntireForecastDay data={forecast[0]} />
-          </div>
+          {forecast.map(function (dailyforecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <EntireForecastDay data={dailyforecast} />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     );
