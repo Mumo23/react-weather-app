@@ -66,16 +66,20 @@ h2 {
 
 .EntireForecast-icon {
   margin-left: 25px;
+  margin-top: 18px;
 }
 
 .EntireForecast-temperature {
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 10px;
   text-align: center;
 }
 
+.EntireForecast-max {
+  font-weight: bold;
+}
+
 .EntireForecast-min {
-  opacity: 0.6;
   margin-left: 5px;
 }
 
